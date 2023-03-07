@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 export default function LastOrdersShop(){
     const [message,setMessage]=useState("")
     const [orders,SetOrders]=useState([])
-    fetch('http://localhost:3001/shop/lastorders',{
+    const shopid= localStorage.getItem('id')
+    let fetchdata= async ()=>{
+        await fetch(`http://localhost:3001/shop/lastorders/${shopid}`,{
         method:'GET',
-        headers: {"Content-Type": "application/json"},
+        headers: {"Content-Type": "application/json"}
     })
     .then(res=>res.json())
     .then((data)=>{
@@ -17,6 +19,10 @@ export default function LastOrdersShop(){
             setMessage(data.message)
         }
     })
+    }
+    useEffect(()=>{
+        fetchdata()
+    },[])
 
 return(
     <div className="Myorders">{orders.map((order:any)=>{

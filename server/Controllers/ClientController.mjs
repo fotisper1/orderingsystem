@@ -83,7 +83,7 @@ export const allShops=async(req,res)=>{
 
 }
 export const getAllOrders=async(req,res)=>{
-    const userid=req.ClientId
+    const userid=req.params.clientid
     try{
         let orders= await Order.findAll({where:{ClientId:userid}})
         if(orders){

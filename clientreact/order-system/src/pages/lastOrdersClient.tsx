@@ -1,21 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function MyOrdersClient(){
     const [Orders,setOrders]=useState([])
     const [errormessage,setErrorMessage]=useState("")
-        fetch('http://localhost:3001/shop/login',{
+    const clientid=localStorage.getItem('id')
+    let fetchdata= async()=>{
+        await fetch(`http://localhost:3001/client/lastorders/${clientid}`,{
         method:'GET',
         headers: {"Content-Type": "application/json"},
         }).then(res=>res.json())
         .then((data)=>{
             if(data.success){
-                setOrders(data.Orders)
+                setOrders(data.orders)
             }
             else{
                 setErrorMessage(data.message)
             }
         
     })
+    }
+    useEffect(()=>{
+        fetchdata()
+    },[])
     return(
         <div className="Myorders">{Orders.map((order:any)=>{
             return(

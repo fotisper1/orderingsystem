@@ -2,7 +2,8 @@ import { Order,Shop} from "../model/database.mjs"
 import bcrypt from 'bcrypt'
 import { where } from "sequelize"
 export const getMyOrders=async(req,res)=>{
-    const shopId=req.body.shopId
+    const shopId=req.params.shopid
+    console.log(shopId)
     try{
         const orders=await Order.findAll({where:{ShopId:shopId}})
         if(orders){
