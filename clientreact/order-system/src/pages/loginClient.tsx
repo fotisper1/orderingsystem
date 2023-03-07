@@ -30,9 +30,9 @@ export default function LoginClient(){
        <div>
        <form className="SubmitLogin" onSubmit={LoginSubmit}>
         <label htmlFor="onoma">Ονομα:</label>
-        <input id="onoma" type="text" required onChange={(e) => setName(e.target.value)}/>
-        <label htmlFor="password">Κωδικός:</label><br/>
-        <input id="password" type="text" required onChange={(e) => setPassword(e.target.value)}/>
+        <input id="onoma" type="text" required onChange={(e) => setName(e.target.value)}/><br/>
+        <label htmlFor="password">Κωδικός:</label>
+        <input id="password" type="password" required onChange={(e) => setPassword(e.target.value)}/><br/>
         <button type="submit">Σύνδεση</button>
        </form>
        <div className="errorMessage">{message}</div>

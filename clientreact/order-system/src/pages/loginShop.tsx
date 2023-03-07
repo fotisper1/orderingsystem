@@ -28,9 +28,9 @@ export default function LoginShop(){
     return(
        <form className="SubmitLogin" onSubmit={LoginSubmit}>
         <label htmlFor="name">Ονομα:</label>
-        <input id="name" type="text" required onChange={(e) => setName(e.target.value)} value={name}/>
-        <label htmlFor="password">Κωδικός:</label><br/>
-        <input id="password" type="text" required onChange={(e) => setPassword(e.target.value)}/>
+        <input id="name" type="text" required onChange={(e) => setName(e.target.value)} value={name}/><br/>
+        <label htmlFor="password">Κωδικός:</label>
+        <input id="password" type="password" required onChange={(e) => setPassword(e.target.value)}/><br/>
         <button type="submit">Σύνδεση</button>
        </form> 
     )
