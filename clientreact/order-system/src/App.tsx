@@ -6,8 +6,8 @@ import LoginShop from './pages/loginShop';
 import LoginClient from './pages/loginClient';
 import LastOrdersShop from './pages/lastOrders';
 import MyOrdersClient from './pages/lastOrdersClient';
-import Client from './components/client';
-import Shop from './components/shop';
+import Client from './pages/client';
+import Shop from './pages/shop';
 import Home from './pages/home';
 import { OneShop} from './pages/oneShop';
 
